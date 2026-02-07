@@ -764,8 +764,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* HEADER */}
-      <header className={`fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm shadow-lg z-50 md:px-[44px] px-6 transition-all duration-300`}>
-        <div className="max-w-7xl w-full mx-auto md:py-[46px] py-6 flex items-center justify-between">
+      <header className={`fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm shadow-lg z-[102] md:px-[44px] px-6 transition-all duration-300`}>
+        <div className=" w-full max-w-[1440px] mx-auto md:py-[46px] py-6 flex items-center justify-between">
           {/* Left side - Logo and Navigation */}
           <div className="flex items-center gap-[70px]">
             {/* Logo */}
@@ -846,68 +846,64 @@ export default function Home() {
 
             {/* Mobile Menu Button - Only on mobile/tablet */}
             <button
-              className="lg:hidden text-white p-2"
+              className="lg:hidden text-white p-4 bg-[#1d2838] rounded-xl"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              <div className="w-4 h-4 relative">
+                {/* Hamburger lines / Cross icon with transition */}
+                <span className={`absolute left-0 w-4 h-[1.5px] bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'top-[7px] rotate-45' : 'top-[2px] rotate-0'}`} />
+                <span className={`absolute left-0 top-[7px] w-4 h-[1.5px] bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`} />
+                <span className={`absolute left-0 w-4 h-[1.5px] bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'top-[7px] -rotate-45' : 'top-[12px] rotate-0'}`} />
+              </div>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu - rendered outside header so fixed positioning works (header's backdrop-blur creates a containing block) */}
-      {mobileMenuOpen && (
-        <>
-          <div
-            className="lg:hidden fixed inset-0 bg-black/40 z-[100]"
-            onClick={() => setMobileMenuOpen(false)}
-            aria-hidden
-          />
-          <div className="lg:hidden fixed top-24 right-4 max-h-[65vh] w-max min-w-[200px] bg-[#1d2838] rounded-2xl shadow-2xl z-[101] overflow-y-auto">
-            <nav className="flex flex-col px-5 py-5 space-y-0.5">
-              <div>
-                <button
-                  onClick={() => { setMobileSolutionsOpen(!mobileSolutionsOpen); setMobilePartnersOpen(false); }}
-                  className={`w-full text-left text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg transition-colors ${mobileSolutionsOpen ? 'bg-[#0a387d] text-white' : 'text-white hover:bg-[#0a387d] hover:text-white'}`}
-                >
-                  Solutions
-                </button>
-                {mobileSolutionsOpen && (
-                  <div className="pl-3 pr-2 pb-1.5 space-y-0.5">
-                    <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Enterprise</a>
-                    <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">MSSP/MDR/XDR</a>
-                    <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Security Vendors</a>
-                  </div>
-                )}
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-black/40 z-[40] transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden
+      />
+      {/* Mobile Menu Dropdown */}
+      <div className={`lg:hidden fixed top-0 right-4 md:right-[44px] max-h-[65vh] w-max min-w-[200px] bg-[#1d2838] rounded-2xl shadow-2xl z-[41] overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${mobileMenuOpen ? 'translate-y-[120px] md:translate-y-[140px]' : '-translate-y-full pointer-events-none'}`}>
+        <nav className="flex flex-col px-5 py-5 space-y-0.5">
+          <div>
+            <button
+              onClick={() => { setMobileSolutionsOpen(!mobileSolutionsOpen); setMobilePartnersOpen(false); }}
+              className={`w-full text-left text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg transition-colors ${mobileSolutionsOpen ? 'bg-[#0a387d] text-white' : 'text-white hover:bg-[#0a387d] hover:text-white'}`}
+            >
+              Solutions
+            </button>
+            {mobileSolutionsOpen && (
+              <div className="pl-3 pr-2 pb-1.5 space-y-0.5">
+                <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Enterprise</a>
+                <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">MSSP/MDR/XDR</a>
+                <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Security Vendors</a>
               </div>
-              <div>
-                <button
-                  onClick={() => { setMobilePartnersOpen(!mobilePartnersOpen); setMobileSolutionsOpen(false); }}
-                  className={`w-full text-left text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg transition-colors ${mobilePartnersOpen ? 'bg-[#0a387d] text-white' : 'text-white hover:bg-[#0a387d] hover:text-white'}`}
-                >
-                  Partners
-                </button>
-                {mobilePartnersOpen && (
-                  <div className="pl-3 pr-2 pb-1.5 space-y-0.5">
-                    <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Cribl</a>
-                    <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">AWS</a>
-                    <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Microsoft</a>
-                  </div>
-                )}
-              </div>
-              <a href="https://www.bluecycle.net/blog" target="_blank" rel="noopener noreferrer" className="text-white hover:bg-[#0a387d] transition-colors text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg block">Blog</a>
-              <a href="https://www.bluecycle.net/about" target="_blank" rel="noopener noreferrer" className="text-white hover:bg-[#0a387d] transition-colors text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg block">About</a>
-            </nav>
+            )}
           </div>
-        </>
-      )}
+          <div>
+            <button
+              onClick={() => { setMobilePartnersOpen(!mobilePartnersOpen); setMobileSolutionsOpen(false); }}
+              className={`w-full text-left text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg transition-colors ${mobilePartnersOpen ? 'bg-[#0a387d] text-white' : 'text-white hover:bg-[#0a387d] hover:text-white'}`}
+            >
+              Partners
+            </button>
+            {mobilePartnersOpen && (
+              <div className="pl-3 pr-2 pb-1.5 space-y-0.5">
+                <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Cribl</a>
+                <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">AWS</a>
+                <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Microsoft</a>
+              </div>
+            )}
+          </div>
+          <a href="https://www.bluecycle.net/blog" target="_blank" rel="noopener noreferrer" className="text-white hover:bg-[#0a387d] transition-colors text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg block">Blog</a>
+          <a href="https://www.bluecycle.net/about" target="_blank" rel="noopener noreferrer" className="text-white hover:bg-[#0a387d] transition-colors text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg block">About</a>
+        </nav>
+      </div>
 
       {/* SECTION 1: HERO BANNER */}
       <section
