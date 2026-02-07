@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Path Cards Component
 function PathCards() {
@@ -470,11 +470,28 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [partnersOpen, setPartnersOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [mobilePartnersOpen, setMobilePartnersOpen] = useState(false);
+
+  // Add scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <main className="min-h-screen bg-black text-white">
       {/* HEADER */}
-      <header className="bg-black/50 backdrop-blur-sm sticky top-0 z-50 px-[40px]">
+      <header className={`${isScrolled ? 'fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm shadow-lg' : 'absolute top-0 left-0 right-0 bg-transparent'} z-50 px-[40px] transition-all duration-300`}>
         <div className="w-full mx-auto py-[30px] flex items-center justify-between">
           {/* Left side - Logo and Navigation */}
           <div className="flex items-center gap-[40px]">
@@ -489,48 +506,58 @@ export default function Home() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-0">
+            <nav className={`hidden md:flex items-center gap-0 transition-all duration-500 ${isScrolled ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
               {/* Solutions Dropdown */}
-              <div className="relative">
+              <div
+                className="relative"
+                onMouseEnter={() => setSolutionsOpen(true)}
+                onMouseLeave={() => setSolutionsOpen(false)}
+              >
                 <button
-                  onMouseEnter={() => setSolutionsOpen(true)}
-                  onMouseLeave={() => setSolutionsOpen(false)}
                   className="px-4 py-2 text-white hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal"
                 >
                   Solutions
                 </button>
                 {solutionsOpen && (
-                  <div
-                    onMouseEnter={() => setSolutionsOpen(true)}
-                    onMouseLeave={() => setSolutionsOpen(false)}
-                    className="absolute top-full left-0 mt-2 bg-[#0a0e17] rounded-md shadow-xl overflow-hidden min-w-[200px] border border-[#1a1e2e]"
-                  >
-                    <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Enterprise</a>
-                    <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">MSSP/MDR/XDR</a>
-                    <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Security Vendors</a>
-                  </div>
+                  <>
+                    {/* Invisible bridge to connect button and dropdown */}
+                    <div className="absolute left-0 right-0" style={{ top: '100%', height: '30px' }} />
+                    <div
+                      className="absolute left-0 bg-[#0a0e17] rounded-md shadow-xl overflow-hidden min-w-[200px] border border-[#1a1e2e]"
+                      style={{ top: 'calc(100% + 30px)' }}
+                    >
+                      <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Enterprise</a>
+                      <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">MSSP/MDR/XDR</a>
+                      <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Security Vendors</a>
+                    </div>
+                  </>
                 )}
               </div>
 
               {/* Partners Dropdown */}
-              <div className="relative">
+              <div
+                className="relative"
+                onMouseEnter={() => setPartnersOpen(true)}
+                onMouseLeave={() => setPartnersOpen(false)}
+              >
                 <button
-                  onMouseEnter={() => setPartnersOpen(true)}
-                  onMouseLeave={() => setPartnersOpen(false)}
                   className="px-4 py-2 text-white hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal"
                 >
                   Partners
                 </button>
                 {partnersOpen && (
-                  <div
-                    onMouseEnter={() => setPartnersOpen(true)}
-                    onMouseLeave={() => setPartnersOpen(false)}
-                    className="absolute top-full left-0 mt-2 bg-[#0a0e17] rounded-md shadow-xl overflow-hidden min-w-[200px] border border-[#1a1e2e]"
-                  >
-                    <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Cribl</a>
-                    <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">AWS</a>
-                    <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Microsoft</a>
-                  </div>
+                  <>
+                    {/* Invisible bridge to connect button and dropdown */}
+                    <div className="absolute left-0 right-0" style={{ top: '100%', height: '30px' }} />
+                    <div
+                      className="absolute left-0 bg-[#0a0e17] rounded-md shadow-xl overflow-hidden min-w-[200px] border border-[#1a1e2e]"
+                      style={{ top: 'calc(100% + 30px)' }}
+                    >
+                      <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Cribl</a>
+                      <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">AWS</a>
+                      <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Microsoft</a>
+                    </div>
+                  </>
                 )}
               </div>
 
@@ -539,13 +566,14 @@ export default function Home() {
             </nav>
           </div>
 
-          {/* Right side - Get Started Button */}
+          {/* Right side - Get Started Button and Mobile Menu */}
           <div className="flex items-center gap-4">
-            <a href="https://www.bluecycle.net/contact" target="_blank" rel="noopener noreferrer" className="hidden md:block px-5 py-2 bg-[#314158] hover:bg-[#0a387d] text-white rounded-[10px] text-[14px] leading-[20px] tracking-[-0.15px] font-medium transition-all duration-300">
+            {/* Get Started Button - Always visible */}
+            <a href="https://www.bluecycle.net/contact" target="_blank" rel="noopener noreferrer" className="px-[28px] py-[10px] bg-[#314158] hover:bg-[#0a387d] text-white rounded-[10px] text-[18px] leading-[20px] tracking-[-0.15px] font-medium transition-all duration-300 hover:skew-x-[-2deg]">
               Get Started
             </a>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Only on mobile/tablet */}
             <button
               className="md:hidden text-white p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -566,17 +594,59 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800">
             <nav className="flex flex-col px-6 py-4 space-y-4">
-              <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">Enterprise</a>
-              <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">MSSP/MDR/XDR</a>
-              <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">Security Vendors</a>
-              <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">Cribl</a>
-              <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">AWS</a>
-              <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">Microsoft</a>
+              {/* Solutions Expandable */}
+              <div>
+                <button
+                  onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+                  className="w-full flex items-center justify-between text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal"
+                >
+                  <span>Solutions</span>
+                  <svg
+                    className={`w-5 h-5 transition-transform ${mobileSolutionsOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {mobileSolutionsOpen && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Enterprise</a>
+                    <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">MSSP/MDR/XDR</a>
+                    <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Security Vendors</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Partners Expandable */}
+              <div>
+                <button
+                  onClick={() => setMobilePartnersOpen(!mobilePartnersOpen)}
+                  className="w-full flex items-center justify-between text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal"
+                >
+                  <span>Partners</span>
+                  <svg
+                    className={`w-5 h-5 transition-transform ${mobilePartnersOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {mobilePartnersOpen && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Cribl</a>
+                    <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">AWS</a>
+                    <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Microsoft</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Direct Links */}
               <a href="https://www.bluecycle.net/blog" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">Blog</a>
               <a href="https://www.bluecycle.net/about" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">About</a>
-              <a href="https://www.bluecycle.net/contact" target="_blank" rel="noopener noreferrer" className="px-5 py-2 bg-[#314158] hover:bg-[#3d5169] text-white rounded-[10px] text-[14px] leading-[20px] tracking-[-0.15px] font-medium transition-colors text-center">
-                Get Started
-              </a>
             </nav>
           </div>
         )}
@@ -588,7 +658,8 @@ export default function Home() {
         style={{
           backgroundImage: 'url(/hero-bg.png)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          paddingTop: '120px'
         }}
       >
         <div className="max-w-7xl mx-auto relative">
@@ -1484,27 +1555,12 @@ export default function Home() {
                   letterSpacing: '-0.45px',
                   color: '#B2C4DD',
                   textDecoration: 'underline',
-                  display: 'block',
-                  marginBottom: '24px'
+                  display: 'block'
                 }}
                 className="hover:text-white transition-colors"
               >
                 info@bluecycle.net
               </a>
-
-              {/* Copyright */}
-              <p
-                style={{
-                  fontFamily: 'Inter',
-                  fontWeight: '400',
-                  fontSize: '18px',
-                  lineHeight: '28px',
-                  letterSpacing: '-0.45px',
-                  color: '#B2C4DD'
-                }}
-              >
-                Copyright 2020-2025. All rights reserved. <a href="https://www.bluecycle.net/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '18px', lineHeight: '28px', letterSpacing: '-0.45px', color: '#B2C4DD', textDecoration: 'underline' }} className="hover:text-white transition-colors">Privacy Policy</a>
-              </p>
             </div>
 
             {/* Right Column - Quick Links */}
@@ -1611,6 +1667,23 @@ export default function Home() {
                 </a>
               </nav>
             </div>
+          </div>
+
+          {/* Copyright Section - Separate */}
+          <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid rgba(178, 196, 221, 0.2)' }}>
+            <p
+              style={{
+                fontFamily: 'Inter',
+                fontWeight: '400',
+                fontSize: '18px',
+                lineHeight: '28px',
+                letterSpacing: '-0.45px',
+                color: '#B2C4DD',
+                textAlign: 'left'
+              }}
+            >
+              Copyright 2020-2025. All rights reserved. <a href="https://www.bluecycle.net/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '18px', lineHeight: '28px', letterSpacing: '-0.45px', color: '#B2C4DD', textDecoration: 'underline' }} className="hover:text-white transition-colors">Privacy Policy</a>
+            </p>
           </div>
         </div>
       </footer>
