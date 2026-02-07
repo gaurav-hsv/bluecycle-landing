@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Path Cards Component
 function PathCards() {
@@ -29,17 +29,53 @@ function PathCards() {
           </div>
           <div style={{ backgroundColor: '#F2F2F2', padding: '24px 16px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#000000', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                <img src="/bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+              <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#000000', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                <svg width="20" className='w-6' height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_33055_2983)">
+                    <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_33055_2983">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+
                 <span>Run Bluecycle Assessment</span>
               </li>
-              <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#000000', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                <img src="/bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+              <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#000000', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                <svg width="20" className='w-6' height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_33055_2983)">
+                    <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_33055_2983">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+
                 <span>Identify Gaps</span>
               </li>
-              <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#000000', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                <img src="/bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                <span>Develop Copilot Implementation Recommendation & Strategy</span>
+              <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#000000', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                <svg width="20" className='w-6' height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_33055_2983)">
+                    <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_33055_2983">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+
+                <span className='w-fit'>Develop Copilot Implementation Recommendation & Strategy</span>
               </li>
             </ul>
           </div>
@@ -61,17 +97,53 @@ function PathCards() {
                 Get started quickly with essential security controls in place
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Identify high-risk data exposure</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Identify high-risk data exposure</span>
                 </li>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Baseline identity and access permissions</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Baseline identity and access permissions</span>
                 </li>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Enable Copilot safely for limited users</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit' >Enable Copilot safely for limited users</span>
                 </li>
               </ul>
             </div>
@@ -94,17 +166,53 @@ function PathCards() {
                 Expand capabilities with governance and deeper data protection
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Governance policies for Copilot usage</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Governance policies for Copilot usage</span>
                 </li>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Data classification and sensitivity controls</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Data classification and sensitivity controls</span>
                 </li>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Improved visibility into Copilot activity</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Improved visibility into Copilot activity</span>
                 </li>
               </ul>
             </div>
@@ -127,17 +235,53 @@ function PathCards() {
                 Achieve full automation and organization-wide confidence
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Automated policy enforcement</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Automated policy enforcement</span>
                 </li>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Continuous monitoring and improvement</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Continuous monitoring and improvement</span>
                 </li>
-                <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
-                  <span>Confident organization-wide Copilot adoption</span>
+                <li className='gap-2' style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span className='w-fit'>Confident organization-wide Copilot adoption</span>
                 </li>
               </ul>
             </div>
@@ -232,15 +376,51 @@ function PathCards() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '12px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Identify high-risk data exposure</span>
                 </li>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '12px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Baseline identity and access permissions</span>
                 </li>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Enable Copilot safely for limited users</span>
                 </li>
               </ul>
@@ -280,15 +460,51 @@ function PathCards() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '12px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Governance policies for Copilot usage</span>
                 </li>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '12px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Data classification and sensitivity controls</span>
                 </li>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Improved visibility into Copilot activity</span>
                 </li>
               </ul>
@@ -328,15 +544,51 @@ function PathCards() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '12px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Automated policy enforcement</span>
                 </li>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', marginBottom: '12px', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Continuous monitoring and improvement</span>
                 </li>
                 <li style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-0.15px', color: '#FFFFFF', display: 'flex', alignItems: 'flex-start', fontFamily: 'Inter', fontWeight: '400' }}>
-                  <img src="/white-bullet.png" alt="" style={{ width: '20px', height: '20px', marginTop: '2px', marginRight: '8px', flexShrink: 0 }} />
+
+                  <svg className="w-6" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_33055_2999)">
+                      <path d="M18.1708 8.33357C18.5513 10.2013 18.2801 12.1431 17.4023 13.8351C16.5245 15.527 15.0932 16.8669 13.347 17.6313C11.6009 18.3957 9.64545 18.5384 7.80684 18.0355C5.96823 17.5327 4.35758 16.4147 3.24349 14.8681C2.12939 13.3214 1.57919 11.4396 1.68464 9.53639C1.79009 7.63318 2.54482 5.82364 3.82297 4.40954C5.10111 2.99545 6.82541 2.06226 8.70831 1.76561C10.5912 1.46897 12.5189 1.82679 14.1699 2.7794" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7.5 9.16927L10 11.6693L18.3333 3.33594" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_33055_2999">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
                   <span>Confident organization-wide Copilot adoption</span>
                 </li>
               </ul>
@@ -426,9 +678,8 @@ function FAQAccordion() {
                 }}
               >{faq.question}</span>
               <svg
-                className={`w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ${
-                  isOpen ? 'rotate-180' : ''
-                }`}
+                className={`w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''
+                  }`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -474,6 +725,10 @@ export default function Home() {
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [mobilePartnersOpen, setMobilePartnersOpen] = useState(false);
 
+  // Refs for click-outside detection
+  const solutionsRef = useRef<HTMLDivElement>(null);
+  const partnersRef = useRef<HTMLDivElement>(null);
+
   // Add scroll listener
   useEffect(() => {
     const handleScroll = () => {
@@ -488,88 +743,104 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Click outside handler to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (solutionsOpen && solutionsRef.current && !solutionsRef.current.contains(event.target as Node)) {
+        setSolutionsOpen(false);
+      }
+      if (partnersOpen && partnersRef.current && !partnersRef.current.contains(event.target as Node)) {
+        setPartnersOpen(false);
+      }
+    };
+
+    // Only add listener when a dropdown is open
+    if (solutionsOpen || partnersOpen) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [solutionsOpen, partnersOpen]);
+
   return (
     <main className="min-h-screen bg-black text-white">
       {/* HEADER */}
-      <header className={`${isScrolled ? 'fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm shadow-lg' : 'absolute top-0 left-0 right-0 bg-transparent'} z-50 px-[40px] transition-all duration-300`}>
-        <div className="w-full mx-auto py-[30px] flex items-center justify-between">
+      <header className={`fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm shadow-lg z-50 md:px-[44px] px-6 transition-all duration-300`}>
+        <div className="w-full mx-auto md:py-[46px] py-6 flex items-center justify-between">
           {/* Left side - Logo and Navigation */}
-          <div className="flex items-center gap-[40px]">
+          <div className="flex items-center gap-[70px]">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <img
                 src="/logo.png"
                 alt="BlueCycle"
-                className="transition-all duration-300 hover:scale-[0.936] cursor-pointer"
-                style={{ width: '174px', height: '40px' }}
+                className="transition-all md:w-40 w-32 h-auto duration-300 hover:scale-[0.936] cursor-pointer"
+                
               />
             </div>
 
             {/* Desktop Navigation */}
-            <nav className={`hidden md:flex items-center gap-0 transition-all duration-500 ${isScrolled ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
+            <nav className={`hidden md:flex items-center gap-2 transition-all duration-500 ${isScrolled ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
               {/* Solutions Dropdown */}
               <div
                 className="relative"
-                onMouseEnter={() => setSolutionsOpen(true)}
-                onMouseLeave={() => setSolutionsOpen(false)}
+                ref={solutionsRef}
               >
                 <button
-                  className="px-4 py-2 text-white hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal"
+                  onClick={() => {
+                    setSolutionsOpen(!solutionsOpen);
+                    setPartnersOpen(false);
+                  }}
+                  className="px-4 py-1 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal"
                 >
                   Solutions
                 </button>
                 {solutionsOpen && (
-                  <>
-                    {/* Invisible bridge to connect button and dropdown */}
-                    <div className="absolute left-0 right-0" style={{ top: '100%', height: '30px' }} />
-                    <div
-                      className="absolute left-0 bg-[#0a0e17] rounded-md shadow-xl overflow-hidden min-w-[200px] border border-[#1a1e2e]"
-                      style={{ top: 'calc(100% + 30px)' }}
-                    >
-                      <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Enterprise</a>
-                      <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">MSSP/MDR/XDR</a>
-                      <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Security Vendors</a>
-                    </div>
-                  </>
+                  <div
+                    className="absolute left-0 bg-[#1d2838] rounded-md shadow-xl min-w-[200px] z-[100] pointer-events-auto"
+                    style={{ top: 'calc(100% + 8px)' }}
+                  >
+                    <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto rounded-t-md">Enterprise</a>
+                    <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto">MSSP/MDR/XDR</a>
+                    <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto rounded-b-md">Security Vendors</a>
+                  </div>
                 )}
               </div>
 
               {/* Partners Dropdown */}
               <div
                 className="relative"
-                onMouseEnter={() => setPartnersOpen(true)}
-                onMouseLeave={() => setPartnersOpen(false)}
+                ref={partnersRef}
               >
                 <button
-                  className="px-4 py-2 text-white hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal"
+                  onClick={() => {
+                    setPartnersOpen(!partnersOpen);
+                    setSolutionsOpen(false);
+                  }}
+                  className="px-4 py-1 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal"
                 >
                   Partners
                 </button>
                 {partnersOpen && (
-                  <>
-                    {/* Invisible bridge to connect button and dropdown */}
-                    <div className="absolute left-0 right-0" style={{ top: '100%', height: '30px' }} />
-                    <div
-                      className="absolute left-0 bg-[#0a0e17] rounded-md shadow-xl overflow-hidden min-w-[200px] border border-[#1a1e2e]"
-                      style={{ top: 'calc(100% + 30px)' }}
-                    >
-                      <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Cribl</a>
-                      <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">AWS</a>
-                      <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-white hover:text-white hover:bg-[#0a387d] transition-all duration-200 text-[16px]">Microsoft</a>
-                    </div>
-                  </>
+                  <div
+                    className="absolute left-0 bg-[#1d2838] rounded-md shadow-xl min-w-[200px] z-[100] pointer-events-auto"
+                    style={{ top: 'calc(100% + 8px)' }}
+                  >
+                    <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto rounded-t-md">Cribl</a>
+                    <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto">AWS</a>
+                    <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto rounded-b-md">Microsoft</a>
+                  </div>
                 )}
               </div>
 
-              <a href="https://www.bluecycle.net/blog" target="_blank" rel="noopener noreferrer" className="px-4 py-2 text-white hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal">Blog</a>
-              <a href="https://www.bluecycle.net/about" target="_blank" rel="noopener noreferrer" className="px-4 py-2 text-white hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal">About</a>
+              <a href="https://www.bluecycle.net/blog" target="_blank" rel="noopener noreferrer" className="px-4 py-1 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal">Blog</a>
+              <a href="https://www.bluecycle.net/about" target="_blank" rel="noopener noreferrer" className="px-4 py-1 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white rounded-lg transition-all duration-300 text-[18px] leading-[28px] font-normal">About</a>
             </nav>
           </div>
 
-          {/* Right side - Get Started Button and Mobile Menu */}
+          {/* Right side - Get Started Button (desktop only) and Mobile Menu */}
           <div className="flex items-center gap-4">
-            {/* Get Started Button - Always visible */}
-            <a href="https://www.bluecycle.net/contact" target="_blank" rel="noopener noreferrer" className="px-[28px] py-[10px] bg-[#314158] hover:bg-[#0a387d] text-white rounded-[10px] text-[18px] leading-[20px] tracking-[-0.15px] font-medium transition-all duration-300 hover:skew-x-[-2deg]">
+            {/* Get Started Button - Hidden on mobile, visible on desktop */}
+            <a href="https://www.bluecycle.net/contact" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex px-[30px] py-[13px] bg-[#1d2838] hover:bg-[#3183ff] text-white rounded-2xl text-[18px] leading-[20px] tracking-[-0.15px]  transition-all duration-300 hover:skew-x-[-2deg]">
               Get Started
             </a>
 
@@ -589,72 +860,58 @@ export default function Home() {
             </button>
           </div>
         </div>
+      </header>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800">
-            <nav className="flex flex-col px-6 py-4 space-y-4">
-              {/* Solutions Expandable */}
+      {/* Mobile Menu - rendered outside header so fixed positioning works (header's backdrop-blur creates a containing block) */}
+      {mobileMenuOpen && (
+        <>
+          <div
+            className="md:hidden fixed inset-0 bg-black/40 z-[100]"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden
+          />
+          <div className="md:hidden fixed top-24 right-4 max-h-[65vh] w-max min-w-[200px] bg-[#1d2838] rounded-2xl shadow-2xl z-[101] overflow-y-auto">
+            <nav className="flex flex-col px-5 py-5 space-y-0.5">
               <div>
                 <button
-                  onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-                  className="w-full flex items-center justify-between text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal"
+                  onClick={() => { setMobileSolutionsOpen(!mobileSolutionsOpen); setMobilePartnersOpen(false); }}
+                  className={`w-full text-left text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg transition-colors ${mobileSolutionsOpen ? 'bg-[#0a387d] text-white' : 'text-white hover:bg-[#0a387d] hover:text-white'}`}
                 >
-                  <span>Solutions</span>
-                  <svg
-                    className={`w-5 h-5 transition-transform ${mobileSolutionsOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  Solutions
                 </button>
                 {mobileSolutionsOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Enterprise</a>
-                    <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">MSSP/MDR/XDR</a>
-                    <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Security Vendors</a>
+                  <div className="pl-3 pr-2 pb-1.5 space-y-0.5">
+                    <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Enterprise</a>
+                    <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">MSSP/MDR/XDR</a>
+                    <a href="https://www.bluecycle.net/solutions/security-vendors" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Security Vendors</a>
                   </div>
                 )}
               </div>
-
-              {/* Partners Expandable */}
               <div>
                 <button
-                  onClick={() => setMobilePartnersOpen(!mobilePartnersOpen)}
-                  className="w-full flex items-center justify-between text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal"
+                  onClick={() => { setMobilePartnersOpen(!mobilePartnersOpen); setMobileSolutionsOpen(false); }}
+                  className={`w-full text-left text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg transition-colors ${mobilePartnersOpen ? 'bg-[#0a387d] text-white' : 'text-white hover:bg-[#0a387d] hover:text-white'}`}
                 >
-                  <span>Partners</span>
-                  <svg
-                    className={`w-5 h-5 transition-transform ${mobilePartnersOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  Partners
                 </button>
                 {mobilePartnersOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Cribl</a>
-                    <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">AWS</a>
-                    <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-[#3d8bfd] transition-colors text-[16px] leading-[24px] font-normal">Microsoft</a>
+                  <div className="pl-3 pr-2 pb-1.5 space-y-0.5">
+                    <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Cribl</a>
+                    <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">AWS</a>
+                    <a href="https://www.bluecycle.net/microsoft" target="_blank" rel="noopener noreferrer" className="block text-[#9ca1a9] hover:text-white hover:bg-[#0a387d] transition-colors text-[16px] leading-[24px] font-normal py-1.5 px-3 rounded-lg">Microsoft</a>
                   </div>
                 )}
               </div>
-
-              {/* Direct Links */}
-              <a href="https://www.bluecycle.net/blog" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">Blog</a>
-              <a href="https://www.bluecycle.net/about" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#3d8bfd] transition-colors text-[18px] leading-[28px] font-normal">About</a>
+              <a href="https://www.bluecycle.net/blog" target="_blank" rel="noopener noreferrer" className="text-white hover:bg-[#0a387d] transition-colors text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg block">Blog</a>
+              <a href="https://www.bluecycle.net/about" target="_blank" rel="noopener noreferrer" className="text-white hover:bg-[#0a387d] transition-colors text-[17px] leading-[26px] font-normal py-2.5 px-3 rounded-lg block">About</a>
             </nav>
           </div>
-        )}
-      </header>
+        </>
+      )}
 
       {/* SECTION 1: HERO BANNER */}
       <section
-        className="relative py-20 px-6 overflow-hidden bg-black"
+        className="relative py-20 px-6 mt-10 overflow-hidden bg-black"
         style={{
           backgroundImage: 'url(/hero-bg.png)',
           backgroundSize: 'cover',
@@ -672,46 +929,46 @@ export default function Home() {
             }}
           >
             <div className="relative px-4 md:px-16 py-12 md:py-20 lg:py-[116px] text-center">
-                <h1
-                  className="font-clash font-medium text-white text-[32px] md:text-[56px] lg:text-[80px] leading-[32px] md:leading-[56px] lg:leading-[80px]"
+              <h1
+                className="font-clash font-medium text-white text-[32px] md:text-[56px] lg:text-[80px] leading-[32px] md:leading-[56px] lg:leading-[80px]"
+                style={{
+                  letterSpacing: '-1.24px'
+                }}
+              >
+                Fast-Track Your Path to<br className="hidden sm:block" /><span className="sm:hidden"> </span>Secure Microsoft 365 Copilot
+              </h1>
+              <p
+                className="font-sans text-white max-w-3xl mx-auto mt-6 md:mt-9 text-[16px] md:text-[20px] lg:text-[24px] px-4"
+                style={{
+                  lineHeight: '115%',
+                  letterSpacing: '-0.45px'
+                }}
+              >
+                Deploy Copilot in weeks—not months with audit-ready security
+                and governance that scales with confidence.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center mt-6 md:mt-9 gap-4 md:gap-[33.5px] px-4">
+                <button
+                  className="w-full sm:w-auto bg-white font-clash font-medium rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl text-[18px] md:text-[20px] lg:text-[24px] px-6 md:px-8 lg:px-[31px] py-4 md:py-5 lg:py-6"
                   style={{
-                    letterSpacing: '-1.24px'
+                    color: '#3184FF',
+                    lineHeight: '28px',
+                    letterSpacing: '-0.44px'
                   }}
                 >
-                  Fast-Track Your Path to<br className="hidden sm:block" /><span className="sm:hidden"> </span>Secure Microsoft 365 Copilot
-                </h1>
-                <p
-                  className="font-sans text-white max-w-3xl mx-auto mt-6 md:mt-9 text-[16px] md:text-[20px] lg:text-[24px] px-4"
+                  Request Copilot Readiness Assessment
+                </button>
+                <button
+                  className="w-full sm:w-auto bg-transparent border-2 border-white text-white font-clash font-medium rounded-lg hover:bg-white/10 transition-all text-[18px] md:text-[20px] lg:text-[24px] px-6 md:px-8 lg:px-[31px] py-4 md:py-5 lg:py-6"
                   style={{
-                    lineHeight: '115%',
-                    letterSpacing: '-0.45px'
+                    lineHeight: '28px',
+                    letterSpacing: '-0.44px'
                   }}
                 >
-                  Deploy Copilot in weeks—not months with audit-ready security
-                  and governance that scales with confidence.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center mt-6 md:mt-9 gap-4 md:gap-[33.5px] px-4">
-                  <button
-                    className="w-full sm:w-auto bg-white font-clash font-medium rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl text-[18px] md:text-[20px] lg:text-[24px] px-6 md:px-8 lg:px-[31px] py-4 md:py-5 lg:py-6"
-                    style={{
-                      color: '#3184FF',
-                      lineHeight: '28px',
-                      letterSpacing: '-0.44px'
-                    }}
-                  >
-                    Request Copilot Readiness Assessment
-                  </button>
-                  <button
-                    className="w-full sm:w-auto bg-transparent border-2 border-white text-white font-clash font-medium rounded-lg hover:bg-white/10 transition-all text-[18px] md:text-[20px] lg:text-[24px] px-6 md:px-8 lg:px-[31px] py-4 md:py-5 lg:py-6"
-                    style={{
-                      lineHeight: '28px',
-                      letterSpacing: '-0.44px'
-                    }}
-                  >
-                    Explore Readiness Path
-                  </button>
-                </div>
+                  Explore Readiness Path
+                </button>
               </div>
+            </div>
           </div>
         </div>
       </section>
@@ -769,7 +1026,7 @@ export default function Home() {
                   color: '#B2C4DD',
                   fontSize: '18px',
                   lineHeight: '28px',
-                  letterSpacing: '-0.45px'
+                  letterSpacing: '-0.35px'
                 }}
               >
                 Top status Microsoft partner for any Copilot-driven transformation initiatives
@@ -869,27 +1126,27 @@ export default function Home() {
       <section className="py-20 px-6" style={{ backgroundColor: '#1D2838' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-          <h2
-            className="font-clash font-medium text-white text-[32px] md:text-[40px] lg:text-[48px] leading-[36px] md:leading-[45px] lg:leading-[54px]"
-            style={{
-              letterSpacing: '0.37px'
-            }}
-          >
-            Copilot Amplifies What You Already Allow
-          </h2>
-          <p
-            className="font-sans font-normal mx-auto"
-            style={{
-              marginTop: '24px',
-              color: '#B2C4DD',
-              fontSize: '18px',
-              lineHeight: '28px',
-              letterSpacing: '-0.45px',
-              maxWidth: '900px'
-            }}
-          >
-            Copilot doesn't create new data. It surfaces what your Microsoft 365 permissions already allow. If something is overshared today, Copilot can summarize it tomorrow. BlueCycle helps you see what Copilot will see and fix risky access, protection, and governance gaps before rollout.
-          </p>
+            <h2
+              className="font-clash font-medium text-white text-[32px] md:text-[40px] lg:text-[48px] leading-[36px] md:leading-[45px] lg:leading-[54px]"
+              style={{
+                letterSpacing: '0.37px'
+              }}
+            >
+              Copilot Amplifies What You Already Allow
+            </h2>
+            <p
+              className="font-sans font-normal mx-auto"
+              style={{
+                marginTop: '24px',
+                color: '#B2C4DD',
+                fontSize: '18px',
+                lineHeight: '28px',
+                letterSpacing: '-0.45px',
+                maxWidth: '980px'
+              }}
+            >
+              Copilot doesn't create new data. It surfaces what your Microsoft 365 permissions already allow. <br /> If something is overshared today, Copilot can summarize it tomorrow. <br />BlueCycle helps you see what Copilot will see and fix risky access, protection, and governance gaps before rollout.
+            </p>
           </div>
         </div>
       </section>
@@ -1073,11 +1330,18 @@ export default function Home() {
             </h3>
             <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div className="flex flex-col lg:flex-row items-start px-4 md:px-8 lg:px-[35.33px] py-4 md:py-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', gap: '16px', borderRadius: '16px' }}>
-                <img
-                  src="/scan.png"
-                  alt="Scan"
-                  style={{ width: '40px', height: '40px' }}
-                />
+
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 5.41667C2.5 3.80584 3.80584 2.5 5.41667 2.5H10.4167C11.107 2.5 11.6667 1.94036 11.6667 1.25C11.6667 0.559644 11.107 0 10.4167 0H5.41667C2.42512 0 0 2.42512 0 5.41667V10.4167C0 11.107 0.559644 11.6667 1.25 11.6667C1.94036 11.6667 2.5 11.107 2.5 10.4167V5.41667ZM2.5 27.9167C2.5 29.5275 3.80584 30.8333 5.41667 30.8333H10.4167C11.107 30.8333 11.6667 31.393 11.6667 32.0833C11.6667 32.7737 11.107 33.3333 10.4167 33.3333H5.41667C2.42512 33.3333 0 30.9082 0 27.9167V22.9167C0 22.2263 0.559644 21.6667 1.25 21.6667C1.94036 21.6667 2.5 22.2263 2.5 22.9167V27.9167ZM27.9167 2.5C29.5275 2.5 30.8333 3.80584 30.8333 5.41667V10.4167C30.8333 11.107 31.393 11.6667 32.0833 11.6667C32.7737 11.6667 33.3333 11.107 33.3333 10.4167V5.41667C33.3333 2.42512 30.9082 0 27.9167 0H22.9167C22.2263 0 21.6667 0.559644 21.6667 1.25C21.6667 1.94036 22.2263 2.5 22.9167 2.5H27.9167ZM30.8333 27.9167C30.8333 29.5275 29.5275 30.8333 27.9167 30.8333H22.9167C22.2263 30.8333 21.6667 31.393 21.6667 32.0833C21.6667 32.7737 22.2263 33.3333 22.9167 33.3333H27.9167C30.9082 33.3333 33.3333 30.9082 33.3333 27.9167V22.9167C33.3333 22.2263 32.7737 21.6667 32.0833 21.6667C31.393 21.6667 30.8333 22.2263 30.8333 22.9167V27.9167ZM26.665 15V21.6667C26.665 24.3295 24.5835 26.5061 21.9588 26.6582L21.665 26.6667H11.665C9.00224 26.6667 6.8256 24.5851 6.67353 21.9605L6.66504 21.6667V15H26.665ZM21.665 6.66667C24.3278 6.66667 26.5045 8.7482 26.6566 11.3729L26.665 11.6667V12.5H6.66504V11.6667C6.66504 9.00386 8.74657 6.82723 11.3713 6.67515L11.665 6.66667H21.665Z" fill="white" />
+                  <path d="M2.5 5.41667C2.5 3.80584 3.80584 2.5 5.41667 2.5H10.4167C11.107 2.5 11.6667 1.94036 11.6667 1.25C11.6667 0.559644 11.107 0 10.4167 0H5.41667C2.42512 0 0 2.42512 0 5.41667V10.4167C0 11.107 0.559644 11.6667 1.25 11.6667C1.94036 11.6667 2.5 11.107 2.5 10.4167V5.41667ZM2.5 27.9167C2.5 29.5275 3.80584 30.8333 5.41667 30.8333H10.4167C11.107 30.8333 11.6667 31.393 11.6667 32.0833C11.6667 32.7737 11.107 33.3333 10.4167 33.3333H5.41667C2.42512 33.3333 0 30.9082 0 27.9167V22.9167C0 22.2263 0.559644 21.6667 1.25 21.6667C1.94036 21.6667 2.5 22.2263 2.5 22.9167V27.9167ZM27.9167 2.5C29.5275 2.5 30.8333 3.80584 30.8333 5.41667V10.4167C30.8333 11.107 31.393 11.6667 32.0833 11.6667C32.7737 11.6667 33.3333 11.107 33.3333 10.4167V5.41667C33.3333 2.42512 30.9082 0 27.9167 0H22.9167C22.2263 0 21.6667 0.559644 21.6667 1.25C21.6667 1.94036 22.2263 2.5 22.9167 2.5H27.9167ZM30.8333 27.9167C30.8333 29.5275 29.5275 30.8333 27.9167 30.8333H22.9167C22.2263 30.8333 21.6667 31.393 21.6667 32.0833C21.6667 32.7737 22.2263 33.3333 22.9167 33.3333H27.9167C30.9082 33.3333 33.3333 30.9082 33.3333 27.9167V22.9167C33.3333 22.2263 32.7737 21.6667 32.0833 21.6667C31.393 21.6667 30.8333 22.2263 30.8333 22.9167V27.9167ZM26.665 15V21.6667C26.665 24.3295 24.5835 26.5061 21.9588 26.6582L21.665 26.6667H11.665C9.00224 26.6667 6.8256 24.5851 6.67353 21.9605L6.66504 21.6667V15H26.665ZM21.665 6.66667C24.3278 6.66667 26.5045 8.7482 26.6566 11.3729L26.665 11.6667V12.5H6.66504V11.6667C6.66504 9.00386 8.74657 6.82723 11.3713 6.67515L11.665 6.66667H21.665Z" fill="url(#paint0_linear_33141_1168)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_33141_1168" x1="8.68055" y1="2.35732e-07" x2="29.4766" y2="28.2483" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#3184FF" />
+                      <stop offset="1" stop-color="#15386E" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
                 <p
                   className="font-clash font-medium text-left"
                   style={{
@@ -1091,11 +1355,18 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col lg:flex-row items-start px-4 md:px-8 lg:px-[35.33px] py-4 md:py-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', gap: '16px', borderRadius: '16px' }}>
-                <img
-                  src="/Map.png"
-                  alt="Map"
-                  style={{ width: '40px', height: '40px' }}
-                />
+
+                <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.16833 0.595V21.37L1.96887 26.4341C1.18935 26.982 0.13311 26.4895 0.0115446 25.5856L0 25.4114V7.69056C0 7.3417 0.145587 7.01155 0.396867 6.77694L0.53113 6.66795L9.16833 0.595ZM29.9924 1.07803L30.0039 1.25218V18.9731C30.0039 19.3219 29.8583 19.6521 29.607 19.8867L29.4728 19.9957L20.835 26.065V5.28833L28.035 0.229574C28.8146 -0.318414 29.8708 0.174131 29.9924 1.07803ZM11.6683 0.596667L18.335 5.28333V26.0617L11.6683 21.3717V0.596667Z" fill="white" />
+                  <path d="M9.16833 0.595V21.37L1.96887 26.4341C1.18935 26.982 0.13311 26.4895 0.0115446 25.5856L0 25.4114V7.69056C0 7.3417 0.145587 7.01155 0.396867 6.77694L0.53113 6.66795L9.16833 0.595ZM29.9924 1.07803L30.0039 1.25218V18.9731C30.0039 19.3219 29.8583 19.6521 29.607 19.8867L29.4728 19.9957L20.835 26.065V5.28833L28.035 0.229574C28.8146 -0.318414 29.8708 0.174131 29.9924 1.07803ZM11.6683 0.596667L18.335 5.28333V26.0617L11.6683 21.3717V0.596667Z" fill="url(#paint0_linear_33141_2014)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_33141_2014" x1="7.81351" y1="1.88564e-07" x2="23.7762" y2="24.3993" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#3184FF" />
+                      <stop offset="1" stop-color="#15386E" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
                 <p
                   className="font-clash font-medium text-left"
                   style={{
@@ -1105,15 +1376,22 @@ export default function Home() {
                     letterSpacing: '0.37px'
                   }}
                 >
-                Copilot Exposure Map: where sensitive data and risky permissions may surface
+                  Copilot Exposure Map: where sensitive data and risky permissions may surface
                 </p>
               </div>
               <div className="flex flex-col lg:flex-row items-start px-4 md:px-8 lg:px-[35.33px] py-4 md:py-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', gap: '16px', borderRadius: '16px' }}>
-                <img
-                  src="/document.png"
-                  alt="Folder"
-                  style={{ width: '40px', height: '40px' }}
-                />
+
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.0013 3.33398V13.334C20.0013 15.1749 21.4937 16.6673 23.3346 16.6673H33.3346V33.334C33.3346 35.1749 31.8422 36.6673 30.0013 36.6673H18.652C20.52 34.7208 21.668 32.0781 21.668 29.1673C21.668 23.1842 16.8177 18.334 10.8346 18.334C9.35813 18.334 7.95062 18.6294 6.66797 19.1643V6.66732C6.66797 4.82637 8.16035 3.33398 10.0013 3.33398H20.0013ZM22.5013 4.16732V13.334C22.5013 13.7942 22.8744 14.1673 23.3346 14.1673H32.5013L22.5013 4.16732ZM20.0013 29.1673C20.0013 34.2299 15.8972 38.334 10.8346 38.334C5.77203 38.334 1.66797 34.2299 1.66797 29.1673C1.66797 24.1047 5.77203 20.0007 10.8346 20.0007C15.8972 20.0007 20.0013 24.1047 20.0013 29.1673ZM10.8346 23.334C10.3744 23.334 10.0013 23.7071 10.0013 24.1673V30.834C10.0013 31.2942 10.3744 31.6673 10.8346 31.6673C11.2949 31.6673 11.668 31.2942 11.668 30.834V24.1673C11.668 23.7071 11.2949 23.334 10.8346 23.334ZM10.8346 35.209C11.4099 35.209 11.8763 34.7426 11.8763 34.1673C11.8763 33.592 11.4099 33.1257 10.8346 33.1257C10.2593 33.1257 9.79297 33.592 9.79297 34.1673C9.79297 34.7426 10.2593 35.209 10.8346 35.209Z" fill="white" />
+                  <path d="M20.0013 3.33398V13.334C20.0013 15.1749 21.4937 16.6673 23.3346 16.6673H33.3346V33.334C33.3346 35.1749 31.8422 36.6673 30.0013 36.6673H18.652C20.52 34.7208 21.668 32.0781 21.668 29.1673C21.668 23.1842 16.8177 18.334 10.8346 18.334C9.35813 18.334 7.95062 18.6294 6.66797 19.1643V6.66732C6.66797 4.82637 8.16035 3.33398 10.0013 3.33398H20.0013ZM22.5013 4.16732V13.334C22.5013 13.7942 22.8744 14.1673 23.3346 14.1673H32.5013L22.5013 4.16732ZM20.0013 29.1673C20.0013 34.2299 15.8972 38.334 10.8346 38.334C5.77203 38.334 1.66797 34.2299 1.66797 29.1673C1.66797 24.1047 5.77203 20.0007 10.8346 20.0007C15.8972 20.0007 20.0013 24.1047 20.0013 29.1673ZM10.8346 23.334C10.3744 23.334 10.0013 23.7071 10.0013 24.1673V30.834C10.0013 31.2942 10.3744 31.6673 10.8346 31.6673C11.2949 31.6673 11.668 31.2942 11.668 30.834V24.1673C11.668 23.7071 11.2949 23.334 10.8346 23.334ZM10.8346 35.209C11.4099 35.209 11.8763 34.7426 11.8763 34.1673C11.8763 33.592 11.4099 33.1257 10.8346 33.1257C10.2593 33.1257 9.79297 33.592 9.79297 34.1673C9.79297 34.7426 10.2593 35.209 10.8346 35.209Z" fill="url(#paint0_linear_33055_2952)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_33055_2952" x1="9.9145" y1="3.33398" x2="32.3049" y2="30.8514" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#3184FF" />
+                      <stop offset="1" stop-color="#15386E" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
                 <p
                   className="font-clash font-medium text-left"
                   style={{
@@ -1127,11 +1405,16 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col lg:flex-row items-start px-4 md:px-8 lg:px-[35.33px] py-4 md:py-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', gap: '16px', borderRadius: '16px' }}>
-                <img
-                  src="/list.png"
-                  alt="List"
-                  style={{ width: '40px', height: '40px' }}
-                />
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 10C2.5 7.92893 4.17893 6.25 6.25 6.25H10C12.0711 6.25 13.75 7.92893 13.75 10V13.75C13.75 15.8211 12.0711 17.5 10 17.5H6.25C4.17893 17.5 2.5 15.8211 2.5 13.75V10ZM18.75 7.5C18.0596 7.5 17.5 8.05964 17.5 8.75C17.5 9.44036 18.0596 10 18.75 10H36.25C36.9404 10 37.5 9.44036 37.5 8.75C37.5 8.05964 36.9404 7.5 36.25 7.5H18.75ZM18.75 23.75C18.0596 23.75 17.5 24.3096 17.5 25C17.5 25.6904 18.0596 26.25 18.75 26.25H36.25C36.9404 26.25 37.5 25.6904 37.5 25C37.5 24.3096 36.9404 23.75 36.25 23.75H18.75ZM17.5 13.75C17.5 13.0596 18.0596 12.5 18.75 12.5H30C30.6904 12.5 31.25 13.0596 31.25 13.75C31.25 14.4404 30.6904 15 30 15H18.75C18.0596 15 17.5 14.4404 17.5 13.75ZM18.75 28.75C18.0596 28.75 17.5 29.3096 17.5 30C17.5 30.6904 18.0596 31.25 18.75 31.25H30C30.6904 31.25 31.25 30.6904 31.25 30C31.25 29.3096 30.6904 28.75 30 28.75H18.75ZM6.25 22.5C4.17893 22.5 2.5 24.1789 2.5 26.25V30C2.5 32.0711 4.17893 33.75 6.25 33.75H10C12.0711 33.75 13.75 32.0711 13.75 30V26.25C13.75 24.1789 12.0711 22.5 10 22.5H6.25Z" fill="white" />
+                  <path d="M2.5 10C2.5 7.92893 4.17893 6.25 6.25 6.25H10C12.0711 6.25 13.75 7.92893 13.75 10V13.75C13.75 15.8211 12.0711 17.5 10 17.5H6.25C4.17893 17.5 2.5 15.8211 2.5 13.75V10ZM18.75 7.5C18.0596 7.5 17.5 8.05964 17.5 8.75C17.5 9.44036 18.0596 10 18.75 10H36.25C36.9404 10 37.5 9.44036 37.5 8.75C37.5 8.05964 36.9404 7.5 36.25 7.5H18.75ZM18.75 23.75C18.0596 23.75 17.5 24.3096 17.5 25C17.5 25.6904 18.0596 26.25 18.75 26.25H36.25C36.9404 26.25 37.5 25.6904 37.5 25C37.5 24.3096 36.9404 23.75 36.25 23.75H18.75ZM17.5 13.75C17.5 13.0596 18.0596 12.5 18.75 12.5H30C30.6904 12.5 31.25 13.0596 31.25 13.75C31.25 14.4404 30.6904 15 30 15H18.75C18.0596 15 17.5 14.4404 17.5 13.75ZM18.75 28.75C18.0596 28.75 17.5 29.3096 17.5 30C17.5 30.6904 18.0596 31.25 18.75 31.25H30C30.6904 31.25 31.25 30.6904 31.25 30C31.25 29.3096 30.6904 28.75 30 28.75H18.75ZM6.25 22.5C4.17893 22.5 2.5 24.1789 2.5 26.25V30C2.5 32.0711 4.17893 33.75 6.25 33.75H10C12.0711 33.75 13.75 32.0711 13.75 30V26.25C13.75 24.1789 12.0711 22.5 10 22.5H6.25Z" fill="url(#paint0_linear_33055_2955)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_33055_2955" x1="11.6146" y1="6.25" x2="27.1897" y2="33.1763" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#3184FF" />
+                      <stop offset="1" stop-color="#15386E" />
+                    </linearGradient>
+                  </defs>
+                </svg>
                 <p
                   className="font-clash font-medium text-left"
                   style={{
@@ -1145,11 +1428,22 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col lg:flex-row items-start px-4 md:px-8 lg:px-[35.33px] py-4 md:py-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', gap: '16px', borderRadius: '16px' }}>
-                <img
-                  src="/flow.png"
-                  alt="List"
-                  style={{ width: '40px', height: '40px' }}
-                />
+
+
+                <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M26.626 16.6667C26.7927 16.6667 26.9553 16.7185 27.0915 16.8148C27.2275 16.911 27.3305 17.0468 27.3861 17.2038L28.0501 19.2432C28.2564 19.8632 28.6033 20.4282 29.0658 20.8903C29.5281 21.3523 30.0925 21.6998 30.7129 21.9059L32.7539 22.5684L32.7946 22.5781C32.9518 22.6336 33.0889 22.7368 33.1852 22.8727C33.2815 23.0087 33.3333 23.1716 33.3333 23.3382C33.3333 23.5049 33.2816 23.6676 33.1852 23.8037C33.0889 23.9398 32.9519 24.0428 32.7946 24.0983L30.7536 24.7607C30.1335 24.9668 29.5702 25.3148 29.1081 25.7764C28.6457 26.2384 28.2971 26.8034 28.0908 27.4235L27.4268 29.4629C27.4209 29.4795 27.4141 29.4956 27.4072 29.5117C27.3487 29.6477 27.2537 29.766 27.1322 29.8519C26.996 29.9481 26.8335 30 26.6667 30C26.4999 30 26.3373 29.9481 26.2012 29.8519C26.0651 29.7557 25.9621 29.6199 25.9066 29.4629L25.2425 27.4235C25.0927 26.9688 24.8667 26.5437 24.5752 26.167C24.4682 26.0287 24.3526 25.896 24.2285 25.7715C23.917 25.459 23.5577 25.2001 23.1673 25C22.9782 24.9031 22.7825 24.8186 22.5798 24.751L20.5387 24.0885C20.3815 24.0331 20.2445 23.9299 20.1481 23.7939C20.0518 23.6579 20 23.4951 20 23.3284C20 23.2208 20.0239 23.1158 20.0651 23.0176C20.0877 22.9637 20.114 22.9112 20.1481 22.863C20.1797 22.8184 20.2161 22.7778 20.2555 22.7409C20.2671 22.7301 20.2792 22.72 20.2913 22.71C20.3644 22.6492 20.448 22.6003 20.5387 22.5684L22.5798 21.9059C22.5853 21.904 22.5905 21.9013 22.596 21.8994C22.7795 21.835 22.9562 21.7551 23.1283 21.6667H23.1348C23.5287 21.4635 23.8896 21.1996 24.2025 20.8822C24.645 20.4331 24.9815 19.8895 25.1855 19.2936L25.2018 19.2432L25.8659 17.2038C25.9214 17.0468 26.0245 16.911 26.1605 16.8148C26.2966 16.7186 26.4592 16.6667 26.626 16.6667ZM22.9167 0C26.8287 3.42266e-07 30 3.17132 30 7.08333C30 10.9953 26.8287 14.1667 22.9167 14.1667H7.08333C5.01227 14.1667 3.33333 15.8456 3.33333 17.9167C3.33333 19.9877 5.01227 21.6667 7.08333 21.6667H18.9827C18.9574 21.6944 18.9287 21.7191 18.9046 21.748L18.7874 21.8994C18.5288 22.2646 18.376 22.6925 18.3415 23.1364L18.3333 23.3284L18.3415 23.5189C18.3759 23.9632 18.5286 24.392 18.7874 24.7575C18.8482 24.8432 18.9154 24.9233 18.986 25H7.08333C3.17132 25 0 21.8287 0 17.9167C3.22133e-07 14.0047 3.17132 10.8333 7.08333 10.8333H22.9167C24.9877 10.8333 26.6667 9.1544 26.6667 7.08333C26.6667 5.01227 24.9877 3.33333 22.9167 3.33333H18.3333C17.4129 3.33333 16.6667 2.58714 16.6667 1.66667C16.6667 0.746192 17.4129 4.69773e-08 18.3333 0H22.9167ZM4.16667 0C5.08714 0 5.83333 0.746192 5.83333 1.66667C5.83333 2.58714 5.08714 3.33333 4.16667 3.33333H1.66667C0.746192 3.33333 0 2.58714 0 1.66667C0 0.746192 0.746192 0 1.66667 0H4.16667ZM12.5 0C13.4205 0 14.1667 0.746192 14.1667 1.66667C14.1667 2.58714 13.4205 3.33333 12.5 3.33333H10C9.07952 3.33333 8.33333 2.58714 8.33333 1.66667C8.33333 0.746192 9.07952 4.02663e-08 10 0H12.5Z" fill="white" />
+                  <path d="M26.626 16.6667C26.7927 16.6667 26.9553 16.7185 27.0915 16.8148C27.2275 16.911 27.3305 17.0468 27.3861 17.2038L28.0501 19.2432C28.2564 19.8632 28.6033 20.4282 29.0658 20.8903C29.5281 21.3523 30.0925 21.6998 30.7129 21.9059L32.7539 22.5684L32.7946 22.5781C32.9518 22.6336 33.0889 22.7368 33.1852 22.8727C33.2815 23.0087 33.3333 23.1716 33.3333 23.3382C33.3333 23.5049 33.2816 23.6676 33.1852 23.8037C33.0889 23.9398 32.9519 24.0428 32.7946 24.0983L30.7536 24.7607C30.1335 24.9668 29.5702 25.3148 29.1081 25.7764C28.6457 26.2384 28.2971 26.8034 28.0908 27.4235L27.4268 29.4629C27.4209 29.4795 27.4141 29.4956 27.4072 29.5117C27.3487 29.6477 27.2537 29.766 27.1322 29.8519C26.996 29.9481 26.8335 30 26.6667 30C26.4999 30 26.3373 29.9481 26.2012 29.8519C26.0651 29.7557 25.9621 29.6199 25.9066 29.4629L25.2425 27.4235C25.0927 26.9688 24.8667 26.5437 24.5752 26.167C24.4682 26.0287 24.3526 25.896 24.2285 25.7715C23.917 25.459 23.5577 25.2001 23.1673 25C22.9782 24.9031 22.7825 24.8186 22.5798 24.751L20.5387 24.0885C20.3815 24.0331 20.2445 23.9299 20.1481 23.7939C20.0518 23.6579 20 23.4951 20 23.3284C20 23.2208 20.0239 23.1158 20.0651 23.0176C20.0877 22.9637 20.114 22.9112 20.1481 22.863C20.1797 22.8184 20.2161 22.7778 20.2555 22.7409C20.2671 22.7301 20.2792 22.72 20.2913 22.71C20.3644 22.6492 20.448 22.6003 20.5387 22.5684L22.5798 21.9059C22.5853 21.904 22.5905 21.9013 22.596 21.8994C22.7795 21.835 22.9562 21.7551 23.1283 21.6667H23.1348C23.5287 21.4635 23.8896 21.1996 24.2025 20.8822C24.645 20.4331 24.9815 19.8895 25.1855 19.2936L25.2018 19.2432L25.8659 17.2038C25.9214 17.0468 26.0245 16.911 26.1605 16.8148C26.2966 16.7186 26.4592 16.6667 26.626 16.6667ZM22.9167 0C26.8287 3.42266e-07 30 3.17132 30 7.08333C30 10.9953 26.8287 14.1667 22.9167 14.1667H7.08333C5.01227 14.1667 3.33333 15.8456 3.33333 17.9167C3.33333 19.9877 5.01227 21.6667 7.08333 21.6667H18.9827C18.9574 21.6944 18.9287 21.7191 18.9046 21.748L18.7874 21.8994C18.5288 22.2646 18.376 22.6925 18.3415 23.1364L18.3333 23.3284L18.3415 23.5189C18.3759 23.9632 18.5286 24.392 18.7874 24.7575C18.8482 24.8432 18.9154 24.9233 18.986 25H7.08333C3.17132 25 0 21.8287 0 17.9167C3.22133e-07 14.0047 3.17132 10.8333 7.08333 10.8333H22.9167C24.9877 10.8333 26.6667 9.1544 26.6667 7.08333C26.6667 5.01227 24.9877 3.33333 22.9167 3.33333H18.3333C17.4129 3.33333 16.6667 2.58714 16.6667 1.66667C16.6667 0.746192 17.4129 4.69773e-08 18.3333 0H22.9167ZM4.16667 0C5.08714 0 5.83333 0.746192 5.83333 1.66667C5.83333 2.58714 5.08714 3.33333 4.16667 3.33333H1.66667C0.746192 3.33333 0 2.58714 0 1.66667C0 0.746192 0.746192 0 1.66667 0H4.16667ZM12.5 0C13.4205 0 14.1667 0.746192 14.1667 1.66667C14.1667 2.58714 13.4205 3.33333 12.5 3.33333H10C9.07952 3.33333 8.33333 2.58714 8.33333 1.66667C8.33333 0.746192 9.07952 4.02663e-08 10 0H12.5Z" fill="url(#paint0_linear_33141_2023)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_33141_2023" x1="8.68055" y1="2.12159e-07" x2="26.7308" y2="27.2428" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#3184FF" />
+                      <stop offset="1" stop-color="#15386E" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+
+
+
                 <p
                   className="font-clash font-medium text-left"
                   style={{
@@ -1180,9 +1474,9 @@ export default function Home() {
               You leave with clarity on exposure, a plan to reduce it, and a path to launch Copilot safely.
             </h2>
 
-          <PathCards />
+            <PathCards />
+          </div>
         </div>
-      </div>
       </section>
 
       {/* SECTION 7: SECURITY PARTNER */}
@@ -1220,7 +1514,7 @@ export default function Home() {
               <h3 className="font-clash font-medium" style={{ fontSize: '24px', lineHeight: '32px', letterSpacing: '0.37px', color: '#FFFFFF', marginTop: '8px' }}>
                 Microsoft-backed Copilot Readiness
               </h3>
-              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '8px', textAlign: 'left' }}>
+              <ul className='space-y-3' style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '10px', textAlign: 'left' }}>
                 <li style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '14px', lineHeight: '115%', letterSpacing: '-0.15px', color: '#90A1B9' }}>
                   Copilot Jumpstart Partner with proven readiness and rollout motions
                 </li>
@@ -1237,7 +1531,7 @@ export default function Home() {
               <h3 className="font-clash font-medium" style={{ fontSize: '24px', lineHeight: '32px', letterSpacing: '0.37px', color: '#FFFFFF', marginTop: '8px' }}>
                 Deep Microsoft Security Specialization
               </h3>
-              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '8px', textAlign: 'left' }}>
+              <ul className='space-y-3' style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '10px', textAlign: 'left' }}>
                 <li style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '14px', lineHeight: '115%', letterSpacing: '-0.15px', color: '#90A1B9' }}>
                   Expertise across Entra, Purview, Defender, and Sentinel
                 </li>
@@ -1254,7 +1548,7 @@ export default function Home() {
               <h3 className="font-clash font-medium" style={{ fontSize: '24px', lineHeight: '32px', letterSpacing: '0.37px', color: '#FFFFFF', marginTop: '8px' }}>
                 Automation-first, Integration-friendly Delivery
               </h3>
-              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '8px', textAlign: 'left' }}>
+              <ul className='space-y-3' style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '10px', textAlign: 'left' }}>
                 <li style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '14px', lineHeight: '115%', letterSpacing: '-0.15px', color: '#90A1B9' }}>
                   Automated assessment accelerates time-to-plan from weeks to days
 
@@ -1273,9 +1567,9 @@ export default function Home() {
               <h3 className="font-clash font-medium" style={{ fontSize: '24px', lineHeight: '32px', letterSpacing: '0.37px', color: '#FFFFFF', marginTop: '8px' }}>
                 We meet you where you are
               </h3>
-              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '8px', textAlign: 'left' }}>
+              <ul className='space-y-3' style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0, marginTop: '10px', textAlign: 'left' }}>
                 <li style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '14px', lineHeight: '115%', letterSpacing: '-0.15px', color: '#90A1B9' }}>
-                 No forced maturity models
+                  No forced maturity models
                 </li>
                 <li style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '14px', lineHeight: '115%', letterSpacing: '-0.15px', color: '#90A1B9' }}>
                   Start from your current state (not ideal state)
@@ -1286,8 +1580,8 @@ export default function Home() {
 
                 </li>
                 <li style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '14px', lineHeight: '115%', letterSpacing: '-0.15px', color: '#90A1B9' }}>
-                 Realistic timelines aligned to your constraints
- 
+                  Realistic timelines aligned to your constraints
+
                 </li>
               </ul>
             </div>
@@ -1441,10 +1735,10 @@ export default function Home() {
                 borderRadius: '8px',
                 fontSize: '18px',
                 lineHeight: '28px',
-                letterSpacing: '-0.44px'
+                letterSpacing: '-0.14px'
               }}
             >
-              TALK TO US ABOUT SECURE COPILOT AGENTS
+              Talk to us about secure Copilot Agents
             </button>
           </div>
         </div>
@@ -1487,7 +1781,7 @@ export default function Home() {
                   color: '#3184FF',
                   borderRadius: '8px',
                   lineHeight: '28px',
-                  letterSpacing: '-0.44px'
+                  letterSpacing: '-0.14px'
                 }}
               >
                 Request Copilot Readiness Assessment
@@ -1514,8 +1808,8 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-12 px-6" style={{ backgroundColor: '#000000' }}>
-        <div className="max-w-7xl mx-auto">
+      <footer className="py-12 md:px-20 px-6" style={{ backgroundColor: '#000000' }}>
+        <div className=" mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 lg:gap-96 xl:gap-[32rem]">
             {/* Left Column */}
             <div>
@@ -1524,7 +1818,9 @@ export default function Home() {
                 <img
                   src="/logo.png"
                   alt="BlueCycle"
-                  style={{ width: '208px', height: '48px' }}
+                  width={174}
+                  height={40}
+                  className='w-40 h-auto'
                 />
               </div>
 
@@ -1533,11 +1829,12 @@ export default function Home() {
                 style={{
                   fontFamily: 'Inter',
                   fontWeight: '400',
-                  fontSize: '18px',
+                  fontSize: '16px',
                   lineHeight: '28px',
                   letterSpacing: '-0.45px',
                   color: '#B2C4DD',
                   marginBottom: '24px',
+                  marginTop: '12px',
                   maxWidth: '500px'
                 }}
               >
@@ -1550,7 +1847,7 @@ export default function Home() {
                 style={{
                   fontFamily: 'Inter',
                   fontWeight: '400',
-                  fontSize: '18px',
+                  fontSize: '16px',
                   lineHeight: '28px',
                   letterSpacing: '-0.45px',
                   color: '#B2C4DD',
@@ -1568,12 +1865,12 @@ export default function Home() {
               <h3
                 style={{
                   fontFamily: 'Inter',
-                  fontWeight: '600',
-                  fontSize: '22px',
+                  fontWeight: '500',
+                  fontSize: '20px',
                   lineHeight: '28px',
                   letterSpacing: '-0.45px',
                   color: '#FFFFFF',
-                  marginBottom: '52px'
+                  marginBottom: '32px'
                 }}
               >
                 Quick Links
@@ -1587,7 +1884,7 @@ export default function Home() {
                   style={{
                     fontFamily: 'Inter',
                     fontWeight: '400',
-                    fontSize: '18px',
+                    fontSize: '16px',
                     lineHeight: '20px',
                     letterSpacing: '-0.45px',
                     color: '#B2C4DD',
@@ -1604,7 +1901,7 @@ export default function Home() {
                   style={{
                     fontFamily: 'Inter',
                     fontWeight: '400',
-                    fontSize: '18px',
+                    fontSize: '16px',
                     lineHeight: '20px',
                     letterSpacing: '-0.45px',
                     color: '#B2C4DD',
@@ -1621,7 +1918,7 @@ export default function Home() {
                   style={{
                     fontFamily: 'Inter',
                     fontWeight: '400',
-                    fontSize: '18px',
+                    fontSize: '16px',
                     lineHeight: '20px',
                     letterSpacing: '-0.45px',
                     color: '#B2C4DD',
@@ -1638,7 +1935,7 @@ export default function Home() {
                   style={{
                     fontFamily: 'Inter',
                     fontWeight: '400',
-                    fontSize: '18px',
+                    fontSize: '16px',
                     lineHeight: '20px',
                     letterSpacing: '-0.45px',
                     color: '#B2C4DD',
@@ -1655,7 +1952,7 @@ export default function Home() {
                   style={{
                     fontFamily: 'Inter',
                     fontWeight: '400',
-                    fontSize: '18px',
+                    fontSize: '16px',
                     lineHeight: '20px',
                     letterSpacing: '-0.45px',
                     color: '#B2C4DD',
@@ -1670,19 +1967,19 @@ export default function Home() {
           </div>
 
           {/* Copyright Section - Separate */}
-          <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid rgba(178, 196, 221, 0.2)' }}>
+          <div style={{ marginTop: '48px', paddingTop: '24px' }}>
             <p
               style={{
                 fontFamily: 'Inter',
                 fontWeight: '400',
-                fontSize: '18px',
+                fontSize: '16px',
                 lineHeight: '28px',
                 letterSpacing: '-0.45px',
                 color: '#B2C4DD',
                 textAlign: 'left'
               }}
             >
-              Copyright 2020-2025. All rights reserved. <a href="https://www.bluecycle.net/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '18px', lineHeight: '28px', letterSpacing: '-0.45px', color: '#B2C4DD', textDecoration: 'underline' }} className="hover:text-white transition-colors">Privacy Policy</a>
+              Copyright 2020-2025. All rights reserved. <a href="https://www.bluecycle.net/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Inter', fontWeight: '400', fontSize: '16px', lineHeight: '28px', letterSpacing: '-0.45px', color: '#B2C4DD' }} className="hover:text-white transition-colors">Privacy Policy</a>
             </p>
           </div>
         </div>
