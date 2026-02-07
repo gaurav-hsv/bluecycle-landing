@@ -765,7 +765,7 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       {/* HEADER */}
       <header className={`fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm shadow-lg z-50 md:px-[44px] px-6 transition-all duration-300`}>
-        <div className="w-full mx-auto md:py-[46px] py-6 flex items-center justify-between">
+        <div className="max-w-7xl w-full mx-auto md:py-[46px] py-6 flex items-center justify-between">
           {/* Left side - Logo and Navigation */}
           <div className="flex items-center gap-[70px]">
             {/* Logo */}
@@ -779,7 +779,7 @@ export default function Home() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className={`hidden md:flex items-center gap-2 transition-all duration-500 ${isScrolled ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
+            <nav className={`hidden lg:flex items-center gap-2 transition-all duration-500 ${isScrolled ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
               {/* Solutions Dropdown */}
               <div
                 className="relative"
@@ -846,7 +846,7 @@ export default function Home() {
 
             {/* Mobile Menu Button - Only on mobile/tablet */}
             <button
-              className="md:hidden text-white p-2"
+              className="lg:hidden text-white p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -866,11 +866,11 @@ export default function Home() {
       {mobileMenuOpen && (
         <>
           <div
-            className="md:hidden fixed inset-0 bg-black/40 z-[100]"
+            className="lg:hidden fixed inset-0 bg-black/40 z-[100]"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden
           />
-          <div className="md:hidden fixed top-24 right-4 max-h-[65vh] w-max min-w-[200px] bg-[#1d2838] rounded-2xl shadow-2xl z-[101] overflow-y-auto">
+          <div className="lg:hidden fixed top-24 right-4 max-h-[65vh] w-max min-w-[200px] bg-[#1d2838] rounded-2xl shadow-2xl z-[101] overflow-y-auto">
             <nav className="flex flex-col px-5 py-5 space-y-0.5">
               <div>
                 <button
@@ -1809,7 +1809,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="py-12 md:px-20 px-6" style={{ backgroundColor: '#000000' }}>
-        <div className=" mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 lg:gap-96 xl:gap-[32rem]">
             {/* Left Column */}
             <div>
