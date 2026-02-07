@@ -796,8 +796,8 @@ export default function Home() {
                 </button>
                 {solutionsOpen && (
                   <div
-                    className="absolute left-0 bg-[#1d2838] rounded-md shadow-xl min-w-[200px] z-[100] pointer-events-auto"
-                    style={{ top: 'calc(100% + 8px)' }}
+                    className="absolute left-0 bg-[#1d2838]  rounded-md shadow-xl min-w-[200px] z-[100] pointer-events-auto"
+                    style={{ top: 'calc(100% + 18px)' }}
                   >
                     <a href="https://www.bluecycle.net/solutions/enterprise-secops" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto rounded-t-md">Enterprise</a>
                     <a href="https://www.bluecycle.net/solutions/mssps" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto">MSSP/MDR/XDR</a>
@@ -823,7 +823,7 @@ export default function Home() {
                 {partnersOpen && (
                   <div
                     className="absolute left-0 bg-[#1d2838] rounded-md shadow-xl min-w-[200px] z-[100] pointer-events-auto"
-                    style={{ top: 'calc(100% + 8px)' }}
+                    style={{ top: 'calc(100% + 18px)' }}
                   >
                     <a href="https://www.bluecycle.net/partners/cribl/cribl-overview" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto rounded-t-md">Cribl</a>
                     <a href="https://www.bluecycle.net/coming-soon" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-[#9ca1a9] hover:bg-[#0a387d] hover:text-white transition-all duration-200 text-[16px] cursor-pointer pointer-events-auto">AWS</a>
