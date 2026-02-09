@@ -909,7 +909,7 @@ export default function Home() {
       <section
         className="relative py-20 px-6 mt-10 overflow-hidden bg-black"
         style={{
-          backgroundImage: 'url(/hero-bg.png)',
+          backgroundImage: 'url(/hero-bg.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           paddingTop: '120px'
@@ -919,7 +919,7 @@ export default function Home() {
           <div
             className="relative rounded-[10px] overflow-hidden"
             style={{
-              backgroundImage: 'url(/hero-inner-bg.png)',
+              backgroundImage: 'url(/hero-inner-bg.jpeg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -940,7 +940,7 @@ export default function Home() {
                   letterSpacing: '-0.45px'
                 }}
               >
-                Deploy Copilot in weeks—not months with audit-ready security
+                Deploy Copilot in weeks not months with audit-ready security
                 and governance that scales with confidence.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center mt-6 md:mt-9 gap-4 md:gap-[33.5px] px-4">
@@ -1645,7 +1645,7 @@ export default function Home() {
       <section
         className="py-20 px-6"
         style={{
-          backgroundImage: 'url(/beyond-copilot-bg.png)',
+          backgroundImage: 'url(/beyond-copilot-bg.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
